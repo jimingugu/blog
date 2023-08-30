@@ -1,0 +1,37 @@
+{{>common/header}}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('https://codepresso-online-platform-public.s3.ap-northeast-2.amazonaws.com/java-web/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-10">
+                <div class="site-heading">
+                    <h1>Codepresso Blog</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+        	{{#posts}}	//시작 (list에 담겨있는 post 만큼 이 부분이 반복하게 됨)
+            <div class="post-preview">
+                <a href="/post/{{id}}">		//상세페이지로 들어가는 링크
+                    <h2 class="post-title">{{title}}</h2>
+                    <h3 class="post-subtitle">{{content}}</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by {{username}}
+                </p>
+            </div>
+            <hr class="my-4" />
+            {{/post}}	//끝
+            <div id="more-posts"></div>		// 더보기 눌렀을 때, 추가하는 영역
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-primary text-uppercase" id="more" current-page="1">More</a>	// 현재까지 가져온 페이지가 몇 페이지 인지 데이터를 가지고 있음
+            </div>
+        </div>
+    </div>
+</div>
+{{>common/footer}}

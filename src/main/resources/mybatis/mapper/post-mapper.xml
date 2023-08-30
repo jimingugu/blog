@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.codepresso.codepressoblog.mapper.PostMapper">
+	<select id="findAll" resultType="com.comdepresso.condressoblog.vo.Post">
+		SELECT * FROM post ORDER BY id DESC
+	</select>
+	
+	<select id="findByPage" resultType="com.codepresso.codepressoblog.vo.Post">	//resultType은 동일하게 Post
+		SELECT * FROM post ORDER BY id DESC LIMIT #{limit} OFFSET #{offset}	//fidAll과 다른 점은 limit과 offset이 있다는 점 (offset은 어디서부터, limit은 몇개)
+	</select>
+	
+	<select id="findOne" resultType="com.codepresso.codepressoblog.vo.Post">
+		SELECT * FROM post WHERE id=#{id};
+	</select>
+	
+	<insert id="save">
+		INSERT INTO post(title, content, username)
+		VALUES (#{post.title}, #{post.content}, #{post.username});
+	</insert>
+</mapper>
+
